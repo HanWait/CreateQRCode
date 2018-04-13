@@ -4,11 +4,13 @@ ios7之前关于二维码的操作普遍使用第三方框架, 常用的有ZXing
 ios7之后系统框架已经集成二维码的生成与读取, 这使开发变得方便很多, 并且会比第三方更加效率。
 
 系统二维码主要通过CIFilter的对象来完成, 当然首先我们需要先导入这个类所在的框架:
-
+```
 #import <CoreImage/CoreImage.h>
+```
 我是在分类里面进行编写，具体看dome
 
 之后只需要实例化一个CIFilter的对象, 给该对象添加数据后生成二维码即可
+```
 + (UIImage *)createQRCodeWithData:(NSString *)dataString logoImage:(UIImage *)logoImage imageSize:(CGFloat)size
 {
     // 1. 创建一个二维码滤镜实例(CIFilter)
@@ -82,3 +84,4 @@ ios7之后系统框架已经集成二维码的生成与读取, 这使开发变�
     CGColorSpaceRelease(colorSpace);
     return [UIImage imageWithCGImage:imageMasked];
 }
+```
